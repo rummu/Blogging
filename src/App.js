@@ -9,6 +9,7 @@ export default class App extends React.Component {
       password:null,
       emailError:null,
       passwordError:null,
+      emailS:null,
       passwordS:null
       
     }
@@ -38,12 +39,12 @@ export default class App extends React.Component {
     if (!this.state.email.includes("@") && this.state.password.length<5) {
         this.setState({
             passwordS:'password should be more than 5 characters',
-            emailError:'invalid Email (should contain @)'
+            emailS:'invalid Email (should contain @)'
         })
     }
    else if (!this.state.email.includes("@")) {
     this.setState({
-        emailError:'invalid Email (should contain @)'
+        emailS:'invalid Email (should contain @)'
     })
    }
    else if (this.state.password.length<5) {
@@ -71,7 +72,7 @@ export default class App extends React.Component {
      if(this.valid()){
        this.setState({
         passwordS:'',
-        emailError:''
+        emailS:''
        })
        alert('submitted')
      }
@@ -249,7 +250,7 @@ export default class App extends React.Component {
                             class="form-control"
                             id="inputEmail4"
                           />
-                          <p style={{color:'red'}}>{this.state.emailError}</p>
+                          <p style={{color:'red'}}>{this.state.emailS}</p>
                         </div>
                         <div class="col-md-6">
                           <label for="inputPassword4" class="form-label">
